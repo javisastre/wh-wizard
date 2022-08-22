@@ -6,9 +6,10 @@ import Step2 from "./Wizard/steps/Step2";
 import Step3 from "./Wizard/steps/Step3";
 
 import { STEP1, STEP2, STEP3 } from "./Wizard/utils/constants";
+import { IWizardContextValues } from "./Wizard/utils/interfaces";
 
 const Wizard = () => {
-  const { currentStep } = useContext(WizardContext);
+  const { currentStep } = useContext(WizardContext) as IWizardContextValues;
 
   return (
     <div>
