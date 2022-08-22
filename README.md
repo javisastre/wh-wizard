@@ -7,7 +7,7 @@ npm install
 npm run start
 ```
 
-### Technologies
+### Technologies used
 
 - React
 - Typescript
