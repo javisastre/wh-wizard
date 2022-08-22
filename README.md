@@ -1,16 +1,17 @@
-[![WheelHub](https://wheelhub.es/logo/Logotipo-Vertical-Negro-Alta.png)](https://wheelhub.es/)
+# Three step wizard
 
-## Installation
+### Run the wizard
 
-Instale las dependencias y ejecute el servidor
-
-```sh
-npm i
+```bash
+npm install
 npm run start
 ```
 
+### Technologies
 
-## Instructions
-Siga las instrucciones establecidas dentro del proyecto.
-
-Una vez finalizado el test, suba la prueba a una cuenta de github propia con acceso público al repositorio y compartanos el link a nuestros correos.
+- React
+- Typescript
+- Context
+- Jest unit testing
+- sass
+- i18n
