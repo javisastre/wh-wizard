@@ -1,3 +1,5 @@
+import { ChangeEvent } from "react";
+
 export interface IWizardData {
   step1: IStep1;
   step2: IStep2;
@@ -32,4 +34,16 @@ export interface IValidators {
   password: RegExp;
   repeatPassword: RegExp;
   hint: RegExp;
+}
+
+export type TInputsEvent = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
+
+export interface ITextInput {
+  label: string;
+  name: string;
+  placeholder: string;
+  value: string;
+  error: IStep2;
+  handleInput: (e: TInputsEvent) => void;
+  handleError: (e: TInputsEvent) => void;
 }
