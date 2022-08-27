@@ -31,7 +31,7 @@ const NavButtons = () => {
   return (
     <div>
       <hr />
-      <nav className='nav-buttons'>
+      <nav className='nav-elements'>
         <button
           className={`simple-btn ${currentStep === STEP1 ? "hidden" : ""}`}
           onClick={stepBack}
