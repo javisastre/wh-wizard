@@ -1,37 +1,60 @@
-import React, { ChangeEvent, useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import { WizardContext } from "../../../WizardContext";
-import { IStep2, IWizardData } from "../utils/interfaces";
+import TextInput from "../inputs/TextInput";
+import {
+  initialStep2Error,
+  validators,
+  errorMessages,
+} from "../utils/constants";
+import { IStep2, IValidators, TInputsEvent } from "../utils/interfaces";
 
 const Step2 = () => {
   const { setStep2Done, setWizardData, wizardData } = useContext(WizardContext);
 
   const [data, setData] = useState<IStep2>(wizardData.step2);
+  const [error, setError] = useState<IStep2>(initialStep2Error);
 
-  const handleInput = (
-    e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
-  ) => setData({ ...data, [e.target.name]: e.target.value });
+  const validInput = (e: TInputsEvent) =>
+    validators[e.target.name as keyof IValidators].test(e.target.value);
+
+  const handleError = (e: TInputsEvent) =>
+    setError({
+      ...error,
+      [e.target.name]: validInput(e)
+        ? ""
+        : errorMessages[e.target.name as keyof IStep2],
+    });
+
+  const handleInput = (e: TInputsEvent) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+    handleError(e);
+  };
+
+  useEffect(() => {
+    setWizardData((prev) => ({ ...prev, step2: data }));
+  }, [data, setStep2Done, setWizardData]);
 
   return (
     <div>
       Step2
       <div>
-        <label htmlFor='username'>Crea tu usuario</label>
-        <input
-          id='username'
+        <TextInput
           name='username'
-          type='text'
+          label='Crea tu usuario'
           placeholder='Introduce tu usuario'
-          minLength={3}
           value={data.username}
-          onChange={handleInput}
+          error={error}
+          handleInput={handleInput}
+          handleError={handleError}
         />
         <label htmlFor='password'>Crea tu contraseña</label>
         <input
-          type='text'
           id='password'
           name='password'
+          type='text'
           placeholder='Crea tu contraseña'
+          required
           minLength={8}
           maxLength={24}
           value={data.password}
@@ -39,10 +62,11 @@ const Step2 = () => {
         />
         <label htmlFor='repeatpassword'>Repite tu contraseña</label>
         <input
-          type='text'
           id='repeatpassword'
           name='repeatPassword'
+          type='text'
           placeholder='Repite tu contraseña'
+          required
           minLength={8}
           maxLength={24}
           value={data.repeatPassword}
