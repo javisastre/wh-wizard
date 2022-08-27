@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 
 import { WizardContext } from "../../../WizardContext";
 import PasswordInput from "../inputs/PasswordInput";
@@ -15,6 +15,7 @@ import {
   IStep2,
   IValidators,
   TInputsEvent,
+  TStep2Fields,
 } from "../utils/interfaces";
 
 const Step2 = () => {
@@ -39,9 +40,26 @@ const Step2 = () => {
     if (e.target.name !== "hint") handleError(e);
   };
 
+  const isAllDataCorrect = useCallback(() => {
+    const checkPasswords = () =>
+      data.password === data.repeatPassword ? true : false;
+
+    const checkField = (field: TStep2Fields) =>
+      error[field] === "" && data[field] !== "" ? true : false;
+
+    return checkPasswords() &&
+      checkField("username") &&
+      checkField("password") &&
+      checkField("repeatPassword")
+      ? true
+      : false;
+  }, [data, error]);
+
   useEffect(() => {
     setWizardData((prev) => ({ ...prev, step2: data }));
-  }, [data, setStep2Done, setWizardData]);
+
+    setStep2Done(isAllDataCorrect() ? true : false);
+  }, [data, setStep2Done, setWizardData, isAllDataCorrect]);
 
   return (
     <div>
