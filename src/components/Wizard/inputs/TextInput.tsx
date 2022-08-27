@@ -1,32 +1,32 @@
 import React from "react";
-import { ITextInput } from "../utils/interfaces";
+import { IInput } from "../utils/interfaces";
 
 const TextInput = ({
   label,
   name,
   placeholder,
+  required,
+  min,
   value,
   error,
   handleInput,
   handleError,
-}: ITextInput) => {
-  return (
-    <>
-      <label htmlFor={name}>{label}</label>
-      <input
-        id={name}
-        name={name}
-        type='text'
-        placeholder={placeholder}
-        required
-        minLength={3}
-        value={value}
-        onChange={handleInput}
-        onBlur={handleError}
-      />
-      {error.username && <p className='error-message'>{error.username}</p>}
-    </>
-  );
-};
+}: IInput) => (
+  <>
+    <label htmlFor={name}>{label}</label>
+    <input
+      id={name}
+      name={name}
+      type='text'
+      placeholder={placeholder}
+      required={required}
+      minLength={min}
+      value={value}
+      onChange={handleInput}
+      onBlur={handleError}
+    />
+    {error && <p className='error-message'>{error}</p>}
+  </>
+);
 
 export default TextInput;
