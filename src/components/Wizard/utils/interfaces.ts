@@ -26,3 +26,10 @@ export interface IWizardContextValues {
   finished: boolean;
   setFinished: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
+export interface IValidators {
+  username: RegExp;
+  password: RegExp;
+  repeatPassword: RegExp;
+  hint: RegExp;
+}
