@@ -1,5 +1,8 @@
 import React, { useContext } from "react";
 import { WizardContext } from "../../WizardContext";
+import NavButtons from "./navigation/NavButtons";
+
+import "./Wizard.scss";
 
 import Step1 from "./steps/Step1";
 import Step2 from "./steps/Step2";
@@ -16,6 +19,7 @@ const Wizard = () => {
       {currentStep === STEP1 && <Step1 />}
       {currentStep === STEP2 && <Step2 />}
       {currentStep === STEP3 && <Step3 />}
+      <NavButtons />
     </div>
   );
 };
