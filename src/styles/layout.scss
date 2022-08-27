@@ -3,3 +3,26 @@
   justify-content: space-between;
   align-items: center;
 }
+.password-input {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.password-relative {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.password-relative input {
+  width: 100%;
+}
+.password-inside-icon {
+  position: absolute;
+  z-index: 10;
+  right: 10px;
+  color: $text-color;
+  cursor: pointer;
+  &:hover {
+    color: $step-hover-color;
+  }
+}
