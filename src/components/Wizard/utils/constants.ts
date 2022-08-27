@@ -1,4 +1,10 @@
-import { IStep1, IStep2, IValidators, IWizardData } from "./interfaces";
+import {
+  IErrorMessages,
+  IStep1,
+  IStep2,
+  IValidators,
+  IWizardData,
+} from "./interfaces";
 
 export const STEP1 = "step1";
 export const STEP2 = "step2";
@@ -15,11 +21,10 @@ export const initialStep2: IStep2 = {
   hint: "",
 };
 
-export const initialStep2Error: IStep2 = {
+export const initialErrorMessages: IErrorMessages = {
   username: "",
   password: "",
   repeatPassword: "",
-  hint: "",
 };
 
 export const initialWizardData: IWizardData = {
@@ -31,12 +36,10 @@ export const validators: IValidators = {
   username: /[0-9a-zA-Z]{3,}/,
   password: /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,24}$/,
   repeatPassword: /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,24}$/,
-  hint: /^.{0,60}$/,
 };
 
-export const errorMessages: IStep2 = {
+export const errorMessages: IErrorMessages = {
   username: "Debes introducir un usuario válido",
   password: "Tu password no es suficientemente compleja",
   repeatPassword: "Debe ser igual que la anterior",
-  hint: "No debe ser mayor de 60 caracteres",
 };

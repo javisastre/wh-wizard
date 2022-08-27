@@ -33,7 +33,12 @@ export interface IValidators {
   username: RegExp;
   password: RegExp;
   repeatPassword: RegExp;
-  hint: RegExp;
+}
+
+export interface IErrorMessages {
+  username: string;
+  password: string;
+  repeatPassword: string;
 }
 
 export type TInputsEvent = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
