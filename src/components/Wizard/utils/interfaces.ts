@@ -46,7 +46,7 @@ export interface IInput {
   min: number;
   max?: number;
   value: string;
-  error: string;
+  error?: string;
   handleInput: (e: TInputsEvent) => void;
-  handleError: (e: TInputsEvent) => void;
+  handleError?: (e: TInputsEvent) => void;
 }
