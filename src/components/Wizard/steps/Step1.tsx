@@ -9,13 +9,13 @@ const Step1 = () => {
   const [data, setData] = useState<IStep1>(wizardData.step1);
 
   const handleData = (e: ChangeEvent<HTMLInputElement>) =>
-    setData({ ...data, confirmPrivacy: e.target.checked });
+    setData((prev) => ({ ...prev, confirmPrivacy: e.target.checked }));
 
   useEffect(() => {
     const isAllDataFilled = () => (data.confirmPrivacy ? true : false);
 
     isAllDataFilled() && setStep1Done(isAllDataFilled());
-    setWizardData({ ...wizardData, step1: data });
+    setWizardData((prev) => ({ ...prev, step1: data }));
   }, [data, setStep1Done, setWizardData]);
 
   return (
