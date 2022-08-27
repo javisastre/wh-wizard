@@ -7,8 +7,15 @@ import { IWizardContextValues } from "../utils/interfaces";
 import { initialWizardData } from "../utils/constants";
 
 const NavButtons = () => {
-  const { currentStep, setCurrentStep, step1Done, step2Done, setWizardData } =
-    useContext<IWizardContextValues>(WizardContext);
+  const {
+    currentStep,
+    setCurrentStep,
+    step1Done,
+    setStep1Done,
+    step2Done,
+    setStep2Done,
+    setWizardData,
+  } = useContext<IWizardContextValues>(WizardContext);
 
   const stepForward = () =>
     currentStep === STEP1 ? setCurrentStep(STEP2) : setCurrentStep(STEP3);
@@ -16,6 +23,8 @@ const NavButtons = () => {
     currentStep === STEP2 ? setCurrentStep(STEP1) : setCurrentStep(STEP2);
   const startOver = () => {
     setCurrentStep(STEP1);
+    setStep1Done(false);
+    setStep2Done(false);
     setWizardData(initialWizardData);
   };
 
