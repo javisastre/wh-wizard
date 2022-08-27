@@ -12,10 +12,10 @@ const Step1 = () => {
     setData({ ...data, confirmPrivacy: e.target.checked });
 
   useEffect(() => {
-    const isAllDataFilled = () => (data.confirmPrivacy ? true : false);
+    const isAllDataCorrect = () => (data.confirmPrivacy ? true : false);
 
-    isAllDataFilled() && setStep1Done(isAllDataFilled());
     setWizardData((prev) => ({ ...prev, step1: data }));
+    isAllDataCorrect() && setStep1Done(isAllDataCorrect());
   }, [data, setStep1Done, setWizardData]);
 
   return (
