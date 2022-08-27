@@ -1,19 +1,27 @@
 import React, { useContext, useEffect, useState } from "react";
 
 import { WizardContext } from "../../../WizardContext";
+import PasswordInput from "../inputs/PasswordInput";
+import TextareaInput from "../inputs/TextareaInput";
 import TextInput from "../inputs/TextInput";
+
 import {
-  initialStep2Error,
+  initialErrorMessages,
   validators,
   errorMessages,
 } from "../utils/constants";
-import { IStep2, IValidators, TInputsEvent } from "../utils/interfaces";
+import {
+  IErrorMessages,
+  IStep2,
+  IValidators,
+  TInputsEvent,
+} from "../utils/interfaces";
 
 const Step2 = () => {
   const { setStep2Done, setWizardData, wizardData } = useContext(WizardContext);
 
   const [data, setData] = useState<IStep2>(wizardData.step2);
-  const [error, setError] = useState<IStep2>(initialStep2Error);
+  const [error, setError] = useState<IErrorMessages>(initialErrorMessages);
 
   const validInput = (e: TInputsEvent) =>
     validators[e.target.name as keyof IValidators].test(e.target.value);
@@ -23,12 +31,12 @@ const Step2 = () => {
       ...error,
       [e.target.name]: validInput(e)
         ? ""
-        : errorMessages[e.target.name as keyof IStep2],
+        : errorMessages[e.target.name as keyof IErrorMessages],
     });
 
   const handleInput = (e: TInputsEvent) => {
     setData({ ...data, [e.target.name]: e.target.value });
-    handleError(e);
+    if (e.target.name !== "hint") handleError(e);
   };
 
   useEffect(() => {
@@ -43,50 +51,50 @@ const Step2 = () => {
           name='username'
           label='Crea tu usuario'
           placeholder='Introduce tu usuario'
+          required={true}
+          min={3}
           value={data.username}
-          error={error}
+          error={error.username}
           handleInput={handleInput}
           handleError={handleError}
         />
-        <label htmlFor='password'>Crea tu contraseña</label>
-        <input
-          id='password'
+        <PasswordInput
           name='password'
-          type='text'
+          label='Crea tu contraseña'
           placeholder='Crea tu contraseña'
-          required
-          minLength={8}
-          maxLength={24}
+          required={true}
+          min={8}
+          max={24}
           value={data.password}
-          onChange={handleInput}
+          error={error.password}
+          handleInput={handleInput}
+          handleError={handleError}
         />
-        <label htmlFor='repeatpassword'>Repite tu contraseña</label>
-        <input
-          id='repeatpassword'
+        <PasswordInput
           name='repeatPassword'
-          type='text'
+          label='Repite tu contraseña'
           placeholder='Repite tu contraseña'
-          required
-          minLength={8}
-          maxLength={24}
+          required={true}
+          min={8}
+          max={24}
           value={data.repeatPassword}
-          onChange={handleInput}
+          error={error.repeatPassword}
+          handleInput={handleInput}
+          handleError={handleError}
         />
         <p>
           También puedes crear una pista que te ayude a recordar tu contraseña
         </p>
-        <label htmlFor='hint'>
-          Crea tu pista para recordar tu contraseña (opcional)
-        </label>
-        <textarea
-          id='hint'
+        <TextareaInput
           name='hint'
+          label='Crea tu pista para recordar tu contraseña (opcional)'
           placeholder='Introduce tu pista'
-          minLength={0}
-          maxLength={60}
+          min={0}
+          max={60}
+          required={false}
           value={data.hint}
-          onChange={handleInput}
-        ></textarea>
+          handleInput={handleInput}
+        />
       </div>
     </div>
   );
