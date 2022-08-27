@@ -55,3 +55,5 @@ export interface IInput {
   handleInput: (e: TInputsEvent) => void;
   handleError?: (e: TInputsEvent) => void;
 }
+
+export type TStep2Fields = "username" | "password" | "repeatPassword";
