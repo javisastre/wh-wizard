@@ -10,8 +10,8 @@ import {
   IWizardContextValues,
 } from "./components/Wizard/utils/interfaces";
 
-export const WizardContext = createContext<IWizardContextValues | undefined>(
-  undefined
+export const WizardContext = createContext<IWizardContextValues>(
+  {} as IWizardContextValues
 );
 
 export const WizardContextProvider = ({
