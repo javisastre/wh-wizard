@@ -14,6 +14,7 @@ const PasswordInput = ({
   handleError,
 }: IInput) => {
   const [show, setShow] = useState<boolean>(false);
+
   return (
     <div className='password-input'>
       <label htmlFor={name}>{label}</label>
