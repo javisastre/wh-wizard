@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { IInput, IStep2 } from "../utils/interfaces";
+import { IInput } from "../utils/interfaces";
 
 const PasswordInput = ({
   name,
