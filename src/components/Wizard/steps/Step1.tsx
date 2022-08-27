@@ -15,7 +15,7 @@ const Step1 = () => {
     const isAllDataFilled = () => (data.confirmPrivacy ? true : false);
 
     isAllDataFilled() && setStep1Done(isAllDataFilled());
-    setWizardData((prev: IWizardData) => ({ ...prev, step1: data }));
+    setWizardData({ ...wizardData, step1: data });
   }, [data, setStep1Done, setWizardData]);
 
   return (
