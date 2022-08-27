@@ -38,12 +38,15 @@ export interface IValidators {
 
 export type TInputsEvent = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
 
-export interface ITextInput {
+export interface IInput {
   label: string;
   name: string;
   placeholder: string;
+  required: boolean;
+  min: number;
+  max?: number;
   value: string;
-  error: IStep2;
+  error: string;
   handleInput: (e: TInputsEvent) => void;
   handleError: (e: TInputsEvent) => void;
 }
