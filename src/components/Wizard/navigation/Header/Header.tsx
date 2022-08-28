@@ -2,10 +2,10 @@ import React from "react";
 
 import { useWizardContext } from "../../context/WizardContext";
 import HeaderStep from "./HeaderStep";
-
-import { STEP1, STEP2, STEP3 } from "../../utils/constants";
 import HeaderBars from "./HeaderBars";
 import HeaderTriangle from "./HeaderTriangle";
+
+import { STEP1, STEP2, STEP3 } from "../../utils/constants";
 
 const Header = () => {
   const { currentStep, step1Done, step2Done, finished } = useWizardContext();
