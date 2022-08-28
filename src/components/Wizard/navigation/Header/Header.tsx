@@ -7,7 +7,7 @@ import { STEP1, STEP2, STEP3 } from "../../utils/constants";
 import HeaderBars from "./HeaderBars";
 import HeaderTriangle from "./HeaderTriangle";
 
-const NavSteps = () => {
+const Header = () => {
   const { currentStep, step1Done, step2Done, finished } = useWizardContext();
 
   const isThis = (step: string) => currentStep === step;
@@ -33,4 +33,4 @@ const NavSteps = () => {
   );
 };
 
-export default NavSteps;
+export default Header;
