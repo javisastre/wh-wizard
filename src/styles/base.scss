@@ -9,8 +9,12 @@ $white: #ffffff;
 $black: #000000;
 $red: red;
 
-// visibility
+$nav-steps-width: 180px;
+$nav-steps-height: 100px;
+$nav-triangle-width: calc(#{$nav-steps-width} - 12px);
+$triangle-width: 18px;
 
+// visibility
 .hidden {
   visibility: hidden;
 }

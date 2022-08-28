@@ -1,3 +1,6 @@
 @import "./../../styles/base.scss";
-@import "./../../styles/layouts.scss";
-@import "./../../styles/elements.scss";
+@import "./steps/Step1.scss";
+@import "./steps/Step2.scss";
+@import "./steps/Step3.scss";
+@import "./navigation/NavButtons.scss";
+@import "./navigation/NavSteps.scss";
