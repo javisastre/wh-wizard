@@ -1,0 +1,13 @@
+.main-title {
+  color: $text-color;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  a {
+    padding: 8px 0;
+    color: $text-color;
+    border-bottom: 3px solid $light-green-color;
+    text-decoration: none;
+    cursor: auto;
+  }
+}
