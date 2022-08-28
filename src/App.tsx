@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 
-// import WheelHubLogo from "./assets/img/Logotipo-Vertical-Verde-Alta.png";
-
 import Wizard from "./components/Wizard/Wizard";
 import { WizardContextProvider } from "./components/Wizard/context/WizardContext";
 
