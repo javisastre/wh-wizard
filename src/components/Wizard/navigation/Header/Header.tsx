@@ -13,7 +13,7 @@ const Header = () => {
   const isThis = (step: string) => currentStep === step;
 
   return (
-    <header>
+    <header className='header-container'>
       <div className='steps-container'>
         <HeaderStep label='1' isThisStep={isThis(STEP1)} stepDone={step1Done} />
         <HeaderStep label='2' isThisStep={isThis(STEP2)} stepDone={step2Done} />
