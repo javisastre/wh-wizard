@@ -2,6 +2,7 @@ import React from "react";
 
 const MainTitle = () => (
   <h1 className='main-title'>
+    {/* little easter egg */}
     <a
       href='https://github.com/javisastre'
       target='_blank'
