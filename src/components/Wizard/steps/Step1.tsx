@@ -21,7 +21,7 @@ const Step1 = () => {
   }, [data, setStep1Done, setWizardData]);
 
   return (
-    <div className='step1'>
+    <article className='step1'>
       <div className='logo'>
         <img src={logoWheelHub} alt='logo WheelHub' />
       </div>
@@ -57,7 +57,7 @@ const Step1 = () => {
           </p>
         </label>
       </div>
-    </div>
+    </article>
   );
 };
 

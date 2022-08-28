@@ -62,59 +62,56 @@ const Step2 = () => {
   }, [data, setStep2Done, setWizardData, isAllDataCorrect]);
 
   return (
-    <div>
-      Step2
-      <div>
-        <TextInput
-          name='username'
-          label='Crea tu usuario'
-          placeholder='Introduce tu usuario'
-          required={true}
-          min={3}
-          value={data.username}
-          error={error.username}
-          handleInput={handleInput}
-          handleError={handleError}
-        />
-        <PasswordInput
-          name='password'
-          label='Crea tu contraseña'
-          placeholder='Crea tu contraseña'
-          required={true}
-          min={8}
-          max={24}
-          value={data.password}
-          error={error.password}
-          handleInput={handleInput}
-          handleError={handleError}
-        />
-        <PasswordInput
-          name='repeatPassword'
-          label='Repite tu contraseña'
-          placeholder='Repite tu contraseña'
-          required={true}
-          min={8}
-          max={24}
-          value={data.repeatPassword}
-          error={error.repeatPassword}
-          handleInput={handleInput}
-          handleError={handleError}
-        />
-        <p>
-          También puedes crear una pista que te ayude a recordar tu contraseña
-        </p>
-        <TextareaInput
-          name='hint'
-          label='Crea tu pista para recordar tu contraseña (opcional)'
-          placeholder='Introduce tu pista'
-          min={0}
-          max={60}
-          required={false}
-          value={data.hint}
-          handleInput={handleInput}
-        />
-      </div>
-    </div>
+    <article className='step2'>
+      <TextInput
+        name='username'
+        label='Crea tu usuario'
+        placeholder='Introduce tu usuario'
+        required={true}
+        min={3}
+        value={data.username}
+        error={error.username}
+        handleInput={handleInput}
+        handleError={handleError}
+      />
+      <PasswordInput
+        name='password'
+        label='Crea tu contraseña'
+        placeholder='Crea tu contraseña'
+        required={true}
+        min={8}
+        max={24}
+        value={data.password}
+        error={error.password}
+        handleInput={handleInput}
+        handleError={handleError}
+      />
+      <PasswordInput
+        name='repeatPassword'
+        label='Repite tu contraseña'
+        placeholder='Repite tu contraseña'
+        required={true}
+        min={8}
+        max={24}
+        value={data.repeatPassword}
+        error={error.repeatPassword}
+        handleInput={handleInput}
+        handleError={handleError}
+      />
+      <p>
+        También puedes crear una pista que te ayude a recordar tu contraseña
+      </p>
+      <TextareaInput
+        name='hint'
+        label='Crea tu pista para recordar tu contraseña (opcional)'
+        placeholder='Introduce tu pista'
+        min={0}
+        max={60}
+        required={false}
+        value={data.hint}
+        handleInput={handleInput}
+      />
+    </article>
   );
 };
 

@@ -2,7 +2,7 @@ import React from "react";
 
 const Step3 = () => {
   return (
-    <div className='step3'>
+    <article className='step3'>
       <div>
         <div>
           <img src='' alt='' />
@@ -16,7 +16,7 @@ const Step3 = () => {
           cursus. Nulla pharetra diam sit amet nisl suscipit adipiscing.
         </p>
       </div>
-    </div>
+    </article>
   );
 };
 
