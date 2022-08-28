@@ -48,12 +48,7 @@
         background-color: $green-color;
       }
     }
-    .checkmark:after {
-      display: none;
-    }
-    .container input:checked + .checkmark:after {
-      display: block;
-    }
+
     label {
       display: flex;
       align-items: center;
