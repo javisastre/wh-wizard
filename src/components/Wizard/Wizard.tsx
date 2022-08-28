@@ -1,19 +1,18 @@
-import React, { useContext } from "react";
-import { WizardContext } from "../../WizardContext";
+import React from "react";
 
+import { useWizardContext } from "./context/WizardContext";
 import NavButtons from "./navigation/NavButtons";
 import NavSteps from "./navigation/NavSteps";
 import Step1 from "./steps/Step1";
 import Step2 from "./steps/Step2";
 import Step3 from "./steps/Step3";
 
+import { STEP1, STEP2, STEP3 } from "./utils/constants";
+
 import "./Wizard.scss";
 
-import { STEP1, STEP2, STEP3 } from "./utils/constants";
-import { IWizardContextValues } from "./utils/interfaces";
-
 const Wizard = () => {
-  const { currentStep } = useContext(WizardContext) as IWizardContextValues;
+  const { currentStep } = useWizardContext();
 
   return (
     <div>

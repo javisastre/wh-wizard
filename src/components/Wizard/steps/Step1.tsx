@@ -1,10 +1,10 @@
-import React, { ChangeEvent, useContext, useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 
-import { WizardContext } from "../../../WizardContext";
+import { useWizardContext } from "../context/WizardContext";
 import { IStep1 } from "../utils/interfaces";
 
 const Step1 = () => {
-  const { setStep1Done, wizardData, setWizardData } = useContext(WizardContext);
+  const { setStep1Done, wizardData, setWizardData } = useWizardContext();
 
   const [data, setData] = useState<IStep1>(wizardData.step1);
 

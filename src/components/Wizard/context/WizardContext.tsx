@@ -1,18 +1,19 @@
 import React, {
   ReactNode,
   createContext,
+  useContext,
   useState,
   PropsWithChildren,
 } from "react";
-import { initialWizardData, STEP1 } from "./components/Wizard/utils/constants";
-import {
-  IWizardData,
-  IWizardContextValues,
-} from "./components/Wizard/utils/interfaces";
+
+import { initialWizardData, STEP1 } from "../utils/constants";
+import { IWizardData, IWizardContextValues } from "../utils/interfaces";
 
 export const WizardContext = createContext<IWizardContextValues>(
   {} as IWizardContextValues
 );
+
+export const useWizardContext = () => useContext(WizardContext);
 
 export const WizardContextProvider = ({
   children,

@@ -1,8 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 
-import { WizardContext } from "../../../WizardContext";
+import { useWizardContext } from "../context/WizardContext";
 import { STEP1, STEP2, STEP3 } from "../utils/constants";
-import { IWizardContextValues } from "../utils/interfaces";
 
 import { initialWizardData } from "../utils/constants";
 
@@ -15,7 +14,7 @@ const NavButtons = () => {
     step2Done,
     setStep2Done,
     setWizardData,
-  } = useContext<IWizardContextValues>(WizardContext);
+  } = useWizardContext();
 
   const stepForward = () =>
     currentStep === STEP1 ? setCurrentStep(STEP2) : setCurrentStep(STEP3);
