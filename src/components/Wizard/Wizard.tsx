@@ -13,6 +13,7 @@ const Wizard = () => {
     <div>
       <NavSteps />
       <main>
+        <h1>Test Frontend Wheel Hub</h1>
         <StepComponent />
       </main>
       <NavButtons />
