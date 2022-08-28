@@ -5,7 +5,7 @@ import { STEP1, STEP2, STEP3 } from "../../utils/constants";
 
 import { initialWizardData } from "../../utils/constants";
 
-const NavButtons = () => {
+const Footer = () => {
   const {
     currentStep,
     setCurrentStep,
@@ -16,6 +16,12 @@ const NavButtons = () => {
     setWizardData,
   } = useWizardContext();
 
+  const isDisabled =
+    (currentStep === STEP1 && step1Done) || (currentStep === STEP2 && step2Done)
+      ? false
+      : true;
+
+  const isThis = (step: string) => currentStep === step;
   const stepForward = () =>
     currentStep === STEP1 ? setCurrentStep(STEP2) : setCurrentStep(STEP3);
   const stepBack = () =>
@@ -28,36 +34,32 @@ const NavButtons = () => {
   };
 
   return (
-    <div>
+    <footer>
       <hr />
-      <nav className='nav-elements'>
+      <nav className='nav-container'>
         <button
-          className={`simple-btn ${currentStep === STEP1 ? "hidden" : ""}`}
+          className={`btn back ${isThis(STEP1) ? "hidden" : ""}`}
           onClick={stepBack}
         >
           Atrás
         </button>
         <button
-          className={`${currentStep === STEP3 ? "none" : ""}`}
-          disabled={
-            (currentStep === STEP1 && step1Done) ||
-            (currentStep === STEP2 && step2Done)
-              ? false
-              : true
-          }
+          className={`btn next ${isThis(STEP3) ? "none" : ""}`}
+          disabled={isDisabled}
           onClick={stepForward}
         >
-          Siguiente
+          Siguiente <i className='fa-solid fa-angle-right'></i>{" "}
+          <i className='fa-solid fa-spinner'></i>
         </button>
         <button
-          className={`${currentStep === STEP3 ? "" : "none"}`}
+          className={`btn start ${isThis(STEP3) ? "" : "none"}`}
           onClick={startOver}
         >
           Volver al inicio
         </button>
       </nav>
-    </div>
+    </footer>
   );
 };
 
-export default NavButtons;
+export default Footer;
