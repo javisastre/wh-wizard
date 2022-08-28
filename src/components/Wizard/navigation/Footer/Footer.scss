@@ -1,5 +1,40 @@
-.nav-elements {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+footer {
+  margin: 0 70px;
+  .nav-container {
+    margin: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .btn {
+    padding: 4px 6px;
+    border: none;
+  }
+  .back {
+    background: $white;
+    color: $dark-green-color;
+    &:hover {
+      color: $green-color;
+    }
+  }
+  .next {
+    color: $white;
+    background-color: $dark-green-color;
+    &:hover {
+      color: $white;
+      background-color: $green-color;
+    }
+    &:disabled {
+      background-color: $step-color;
+      color: $white;
+      cursor: not-allowed;
+    }
+  }
+  .start {
+    font-weight: bolder;
+    color: $dark-green-color;
+    &:hover {
+      color: $green-color;
+    }
+  }
 }
