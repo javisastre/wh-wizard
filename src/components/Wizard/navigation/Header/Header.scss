@@ -1,0 +1,109 @@
+header {
+  position: relative;
+  background-color: $light-green-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: $nav-steps-height;
+}
+.steps-container {
+  width: $nav-steps-width;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  z-index: 2;
+}
+
+// STEP CIRCLES
+.step {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  text-align: center;
+  width: 25px;
+  height: 25px;
+  transition: all 0.2s ease-in-out;
+  color: white;
+  font-weight: bolder;
+  background-color: $step-color;
+}
+.current {
+  width: 30px;
+  height: 30px;
+}
+.not-current {
+  width: 25px;
+  height: 25px;
+}
+.bg-dark-green {
+  background-color: $dark-green-color;
+}
+.bg-grey {
+  background-color: $step-color;
+}
+
+// TRIANGLE SELECTOR
+.triangle-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  bottom: 0;
+  width: 100%;
+}
+.triangle-wrap {
+  width: $nav-triangle-width;
+}
+.triangle {
+  width: $triangle-width;
+  height: 0;
+  border-left: calc(#{$triangle-width} / 2) solid transparent;
+  border-right: calc(#{$triangle-width} / 2) solid transparent;
+  border-bottom: 10px solid white;
+}
+.triangle-left {
+  transition: 0.2s ease-in-out;
+  transform: translateX(0);
+}
+.triangle-center {
+  transition: 0.2s ease-in-out;
+  transform: translateX(
+    calc(#{$nav-triangle-width / 2} - #{$triangle-width / 2})
+  );
+}
+.triangle-right {
+  transition: 0.2s ease-in-out;
+  transform: translateX(calc(#{$nav-triangle-width} - #{$triangle-width}));
+}
+
+// NAVIGATION HORIZONTAL LINES
+.hr-bars-container {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+.hr-bars {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: calc(#{$nav-steps-width - 40px});
+}
+.hr-grey {
+  width: 70px;
+  border: 0;
+  height: 3px;
+  transition: 0.2s ease-in-out;
+  background: $step-color;
+}
+.hr-green {
+  width: 70px;
+  border: 0;
+  height: 3px;
+  transition: 0.2s ease-in-out;
+  background: $dark-green-color;
+}

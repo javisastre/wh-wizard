@@ -63,3 +63,13 @@ export interface IHeaderStep {
   stepDone: boolean;
   label: string;
 }
+export interface IHeaderBars {
+  isStep1: boolean;
+  step2Done: boolean;
+  isStep3: boolean;
+}
+
+export interface IHeaderTriangle {
+  isStep1: boolean;
+  isStep2: boolean;
+}
