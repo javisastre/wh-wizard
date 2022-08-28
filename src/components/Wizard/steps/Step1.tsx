@@ -3,6 +3,8 @@ import React, { ChangeEvent, useEffect, useState } from "react";
 import { useWizardContext } from "../context/WizardContext";
 import { IStep1 } from "../utils/interfaces";
 
+import logoWheelHub from "./../../../assets/img/Logotipo-Vertical-Verde-Alta.png";
+
 const Step1 = () => {
   const { setStep1Done, wizardData, setWizardData } = useWizardContext();
 
@@ -19,10 +21,12 @@ const Step1 = () => {
   }, [data, setStep1Done, setWizardData]);
 
   return (
-    <div>
-      <h2>step1</h2>
+    <div className='step1'>
+      <div className='logo'>
+        <img src={logoWheelHub} alt='logo WheelHub' />
+      </div>
       <div>
-        <h6>¿Qué deberá realizar?</h6>
+        <h2>¿Qué deberá realizar?</h2>
         <p>
           En la primera prestaña, deberá confirmar que es mayor de edad y acepta
           el tratamiento de sus datos según la política de datos vigentes.
@@ -35,17 +39,24 @@ const Step1 = () => {
           En tercer lugar, deberá visualizarse el mensaje de éxito de creación.
         </p>
       </div>
-      <input
-        id='confirmPrivacy'
-        name='confirmPrivacy'
-        type='checkbox'
-        checked={data.confirmPrivacy}
-        onChange={handleData}
-      />
-      <label htmlFor='confirmPrivacy'>
-        Confirma que es mayor de edad, y acepta el tratamiento de sus datos
-        según la política de protección de datos vigente.
-      </label>
+      <div className='input-container'>
+        <label htmlFor='confirmPrivacy'>
+          <input
+            id='confirmPrivacy'
+            name='confirmPrivacy'
+            type='checkbox'
+            checked={data.confirmPrivacy}
+            onChange={handleData}
+          />
+          <div className='checkmark'>
+            <div className='inner'></div>
+          </div>
+          <p>
+            Confirma que es mayor de edad, y acepta el tratamiento de sus datos
+            según la política de protección de datos vigente.
+          </p>
+        </label>
+      </div>
     </div>
   );
 };
