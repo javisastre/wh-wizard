@@ -1,9 +1,9 @@
 import React from "react";
 
-import { useWizardContext } from "../context/WizardContext";
-import { STEP1, STEP2, STEP3 } from "../utils/constants";
+import { useWizardContext } from "../../context/WizardContext";
+import { STEP1, STEP2, STEP3 } from "../../utils/constants";
 
-import { initialWizardData } from "../utils/constants";
+import { initialWizardData } from "../../utils/constants";
 
 const NavButtons = () => {
   const {
