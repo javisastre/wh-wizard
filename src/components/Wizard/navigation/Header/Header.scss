@@ -23,20 +23,20 @@
   align-items: center;
   border-radius: 50%;
   text-align: center;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   transition: all 0.2s ease-in-out;
   color: $white;
   font-weight: bolder;
   background-color: $step-color;
 }
 .current {
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
 }
 .not-current {
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
 }
 .bg-dark-green {
   background-color: $dark-green-color;
