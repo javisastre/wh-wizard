@@ -57,3 +57,9 @@ export interface IInput {
 }
 
 export type TStep2Fields = "username" | "password" | "repeatPassword";
+
+export interface IHeaderStep {
+  isThisStep: boolean;
+  stepDone: boolean;
+  label: string;
+}
