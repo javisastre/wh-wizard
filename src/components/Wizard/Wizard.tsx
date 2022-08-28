@@ -1,8 +1,9 @@
 import React from "react";
 
 import useStepSelector from "./hooks/useStepSelector";
-import NavButtons from "./navigation/NavButtons";
-import NavSteps from "./navigation/NavSteps";
+import Footer from "./navigation/Footer/Footer";
+import Header from "./navigation/Header/Header";
+import MainTitle from "./navigation/MainTitle";
 
 import "./Wizard.scss";
 
@@ -11,12 +12,12 @@ const Wizard = () => {
 
   return (
     <div>
-      <NavSteps />
+      <Header />
       <main>
-        <h1>Test Frontend Wheel Hub</h1>
+        <MainTitle />
         <StepComponent />
       </main>
-      <NavButtons />
+      <Footer />
     </div>
   );
 };
