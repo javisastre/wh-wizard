@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useState } from "react";
 
 import { useWizardContext } from "../context/WizardContext";
-import PasswordInput from "../inputs/PasswordInput";
-import TextareaInput from "../inputs/TextareaInput";
-import TextInput from "../inputs/TextInput";
+import PasswordInput from "./inputs/PasswordInput";
+import TextareaInput from "./inputs/TextareaInput";
+import TextInput from "./inputs/TextInput";
 
 import {
   initialErrorMessages,
@@ -74,33 +74,38 @@ const Step2 = () => {
         handleInput={handleInput}
         handleError={handleError}
       />
-      <PasswordInput
-        name='password'
-        label='Crea tu contraseña'
-        placeholder='Crea tu contraseña'
-        required={true}
-        min={8}
-        max={24}
-        value={data.password}
-        error={error.password}
-        handleInput={handleInput}
-        handleError={handleError}
-      />
-      <PasswordInput
-        name='repeatPassword'
-        label='Repite tu contraseña'
-        placeholder='Repite tu contraseña'
-        required={true}
-        min={8}
-        max={24}
-        value={data.repeatPassword}
-        error={error.repeatPassword}
-        handleInput={handleInput}
-        handleError={handleError}
-      />
-      <p>
-        También puedes crear una pista que te ayude a recordar tu contraseña
-      </p>
+      <div className='two-passwords'>
+        <PasswordInput
+          name='password'
+          label='Crea tu contraseña'
+          placeholder='Crea tu contraseña'
+          required={true}
+          min={8}
+          max={24}
+          value={data.password}
+          error={error.password}
+          handleInput={handleInput}
+          handleError={handleError}
+        />
+        <PasswordInput
+          name='repeatPassword'
+          label='Repite tu contraseña'
+          placeholder='Repite tu contraseña'
+          required={true}
+          min={8}
+          max={24}
+          value={data.repeatPassword}
+          error={error.repeatPassword}
+          handleInput={handleInput}
+          handleError={handleError}
+        />
+      </div>
+      <div className='hint-label'>
+        <p>
+          También puedes crear una pista que te ayude a recordar tu contraseña
+        </p>
+        <i className='fa-solid fa-circle-info'></i>
+      </div>
       <TextareaInput
         name='hint'
         label='Crea tu pista para recordar tu contraseña (opcional)'
