@@ -48,7 +48,7 @@ export const initialErrorMessages: IErrorMessages = {
 
 export const errorMessagesDB: IErrorMessagesDB = {
   username: {
-    empty: "El campo es obligatori",
+    empty: "El campo es obligatorio",
     invalid: "Debes introducir un usuario válido",
   },
   password: {
