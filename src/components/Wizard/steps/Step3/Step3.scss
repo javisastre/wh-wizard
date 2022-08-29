@@ -1,0 +1,15 @@
+@import "./Message.scss";
+
+.step3 {
+  display: flex;
+  align-items: center;
+  height: 70%;
+  .step3-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    img {
+      height: 150px;
+    }
+  }
+}
