@@ -1,0 +1,12 @@
+.lang-selector {
+  position: fixed;
+  z-index: 80;
+  height: 30px;
+  width: 100px;
+  top: calc(#{$nav-steps-height / 2 - 15px});
+  right: 20px;
+  border-radius: 0.2rem;
+  color: $dark-green-color;
+  border: 1px solid $dark-green-color;
+  outline: none;
+}
