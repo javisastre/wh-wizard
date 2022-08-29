@@ -1,22 +1,24 @@
 import { ChangeEvent } from "react";
 
+// CONTEXT
 export interface IWizardData {
   step1: IStep1;
   step2: IStep2;
   step3: IFinished;
 }
-
 export interface IStep1 {
   confirmPrivacy: boolean;
 }
-
 export interface IStep2 {
   username: string;
   password: string;
   repeatPassword: string;
   hint: string;
 }
-
+export interface IFinished {
+  success: boolean;
+  error: boolean;
+}
 export interface IWizardContextValues {
   currentStep: string;
   setCurrentStep: React.Dispatch<React.SetStateAction<string>>;
@@ -30,23 +32,33 @@ export interface IWizardContextValues {
   setFinished: React.Dispatch<React.SetStateAction<IFinished>>;
 }
 
-export interface IFinished {
-  success: boolean;
-  error: boolean;
+// NAVIGATION
+export interface IHeaderStep {
+  isThisStep: boolean;
+  stepDone: boolean;
+  label: string;
+}
+export interface IHeaderBars {
+  isStep1: boolean;
+  step2Done: boolean;
+  isStep3: boolean;
+}
+export interface IHeaderTriangle {
+  isStep1: boolean;
+  isStep2: boolean;
 }
 
+// STEP2
 export interface IValidators {
   username: RegExp;
   password: RegExp;
   repeatPassword: RegExp;
 }
-
 export interface IErrorMessages {
   username: string;
   password: string;
   repeatPassword: string;
 }
-
 export interface IErrorMessagesDB {
   username: {
     empty: string;
@@ -61,9 +73,7 @@ export interface IErrorMessagesDB {
     invalid: string;
   };
 }
-
 export type TInputsEvent = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
-
 export interface IInput {
   label: string;
   name: string;
@@ -76,25 +86,13 @@ export interface IInput {
   handleInput: (e: TInputsEvent) => void;
   handleError?: (e: TInputsEvent) => void;
 }
-
 export type TStep2Fields = "username" | "password" | "repeatPassword";
-
-export interface IHeaderStep {
-  isThisStep: boolean;
-  stepDone: boolean;
-  label: string;
-}
-export interface IHeaderBars {
-  isStep1: boolean;
-  step2Done: boolean;
-  isStep3: boolean;
+export interface IPasswordEye {
+  show: boolean;
+  setShow: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export interface IHeaderTriangle {
-  isStep1: boolean;
-  isStep2: boolean;
-}
-
+// STEP3
 export interface IMessage {
   content: {
     title: string;
