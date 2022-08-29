@@ -17,7 +17,11 @@ const Header = () => {
       <div className='steps-container'>
         <HeaderStep label='1' isThisStep={isThis(STEP1)} stepDone={step1Done} />
         <HeaderStep label='2' isThisStep={isThis(STEP2)} stepDone={step2Done} />
-        <HeaderStep label='3' isThisStep={isThis(STEP3)} stepDone={finished} />
+        <HeaderStep
+          label='3'
+          isThisStep={isThis(STEP3)}
+          stepDone={finished.success}
+        />
       </div>
       <div className='hr-bars-container'>
         <HeaderBars

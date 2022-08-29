@@ -3,6 +3,7 @@ import { ChangeEvent } from "react";
 export interface IWizardData {
   step1: IStep1;
   step2: IStep2;
+  step3: IFinished;
 }
 
 export interface IStep1 {
@@ -25,8 +26,13 @@ export interface IWizardContextValues {
   setStep1Done: React.Dispatch<React.SetStateAction<boolean>>;
   step2Done: boolean;
   setStep2Done: React.Dispatch<React.SetStateAction<boolean>>;
-  finished: boolean;
-  setFinished: React.Dispatch<React.SetStateAction<boolean>>;
+  finished: IFinished;
+  setFinished: React.Dispatch<React.SetStateAction<IFinished>>;
+}
+
+export interface IFinished {
+  success: boolean;
+  error: boolean;
 }
 
 export interface IValidators {

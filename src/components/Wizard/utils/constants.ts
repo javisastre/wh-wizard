@@ -1,5 +1,6 @@
 import {
   IErrorMessages,
+  IFinished,
   IStep1,
   IStep2,
   IValidators,
@@ -21,6 +22,11 @@ export const initialStep2: IStep2 = {
   hint: "",
 };
 
+export const initialFinished: IFinished = {
+  success: false,
+  error: false,
+};
+
 export const initialErrorMessages: IErrorMessages = {
   username: "",
   password: "",
@@ -30,6 +36,7 @@ export const initialErrorMessages: IErrorMessages = {
 export const initialWizardData: IWizardData = {
   step1: initialStep1,
   step2: initialStep2,
+  step3: initialFinished,
 };
 
 export const validators: IValidators = {

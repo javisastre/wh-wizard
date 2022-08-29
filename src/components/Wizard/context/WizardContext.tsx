@@ -6,8 +6,12 @@ import React, {
   PropsWithChildren,
 } from "react";
 
-import { initialWizardData, STEP1 } from "../utils/constants";
-import { IWizardData, IWizardContextValues } from "../utils/interfaces";
+import { initialFinished, initialWizardData, STEP1 } from "../utils/constants";
+import {
+  IWizardData,
+  IWizardContextValues,
+  IFinished,
+} from "../utils/interfaces";
 
 export const WizardContext = createContext<IWizardContextValues>(
   {} as IWizardContextValues
@@ -22,7 +26,7 @@ export const WizardContextProvider = ({
   const [wizardData, setWizardData] = useState<IWizardData>(initialWizardData);
   const [step1Done, setStep1Done] = useState<boolean>(false);
   const [step2Done, setStep2Done] = useState<boolean>(false);
-  const [finished, setFinished] = useState<boolean>(false);
+  const [finished, setFinished] = useState<IFinished>(initialFinished);
 
   const wizardContextValues: IWizardContextValues = {
     currentStep,
