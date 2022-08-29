@@ -1,23 +1,27 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
-import successImg from "./../../../../assets/img/success.png";
-import errorImg from "./../../../../assets/img/error.png";
 import { useWizardContext } from "../../context/WizardContext";
 import Message from "./Message";
 import Step404 from "../Step404";
 
+import successImg from "./../../../../assets/img/success.png";
+import errorImg from "./../../../../assets/img/error.png";
+
 const Step3 = () => {
+  const { t } = useTranslation();
+
   const {
     finished: { success, error },
   } = useWizardContext();
 
   const successMessage = {
-    title: "¡La cuenta de creó correctamente!",
-    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. At in tellus integer feugiat scelerisque varius. Dignissim cras tincidunt lobortis feugiat vivamus at. Id neque aliquam vestibulum morbi blandit cursus. Nulla pharetra diam sit amet nisl suscipit adipiscing.",
+    title: t("STEP3_SUCCESS_TITLE"),
+    body: t("STEP3_SUCCESS_BODY"),
   };
   const errorMessage = {
-    title: "Ha habido un error al crear tu cuenta",
-    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. At in tellus integer feugiat scelerisque varius. Dignissim cras tincidunt lobortis feugiat vivamus at. Id neque aliquam vestibulum morbi blandit cursus. Nulla pharetra diam sit amet nisl suscipit adipiscing.",
+    title: t("STEP3_ERROR_TITLE"),
+    body: t("STEP3_ERROR_BODY"),
   };
 
   return (
