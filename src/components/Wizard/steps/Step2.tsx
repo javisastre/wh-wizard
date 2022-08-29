@@ -104,7 +104,6 @@ const Step2 = () => {
         <p>
           También puedes crear una pista que te ayude a recordar tu contraseña
         </p>
-        <i className='fa-solid fa-circle-info'></i>
       </div>
       <TextareaInput
         name='hint'
