@@ -8,6 +8,9 @@ import {
   IWizardData,
 } from "./interfaces";
 
+import i18n from "../../../i18n/i18n";
+const { t } = i18n;
+
 // NAVIGATION
 export const STEP1 = "step1";
 export const STEP2 = "step2";
@@ -46,15 +49,15 @@ export const initialErrorMessages: IErrorMessages = {
 };
 export const errorMessagesDB: IErrorMessagesDB = {
   username: {
-    empty: "El campo es obligatorio",
-    invalid: "Debes introducir un usuario válido",
+    empty: t("STEP2_ERR_EMPTY_FIELD"),
+    invalid: t("STEP2_ERR_INVALID_USERNAME"),
   },
   password: {
-    empty: "El campo es obligatorio",
-    invalid: "Tu password debe ser más robusta",
+    empty: t("STEP2_ERR_EMPTY_FIELD"),
+    invalid: t("STEP2_ERR_INVALID_PASS"),
   },
   repeatPassword: {
-    empty: "El campo es obligatorio",
-    invalid: "Debe ser igual que la anterior",
+    empty: t("STEP2_ERR_EMPTY_FIELD"),
+    invalid: t("STEP2_ERR_INVALID_REPASS"),
   },
 };
