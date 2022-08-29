@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { IInput } from "../../utils/interfaces";
+import PasswordEye from "./PasswordEye";
+import PasswordStrength from "./PasswordStrength";
 
 const PasswordInput = ({
   name,
@@ -32,14 +34,8 @@ const PasswordInput = ({
           onChange={handleInput}
           onBlur={handleError}
         />
-        <div className='password-inside-icon' onClick={() => setShow(!show)}>
-          {show ? (
-            <i className='fa-solid fa-eye-slash'></i>
-          ) : (
-            <i className='fa-solid fa-eye'></i>
-          )}
-        </div>
-        <div className='password-strength'></div>
+        <PasswordEye show={show} setShow={setShow} />
+        <PasswordStrength password={value} />
       </div>
       <div className='error-message-container'>
         {error && <p className='error-message'>{error}</p>}

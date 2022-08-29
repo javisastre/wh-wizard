@@ -91,6 +91,9 @@ export interface IPasswordEye {
   show: boolean;
   setShow: React.Dispatch<React.SetStateAction<boolean>>;
 }
+export interface IPasswordStrength {
+  password: string;
+}
 
 // STEP3
 export interface IMessage {
