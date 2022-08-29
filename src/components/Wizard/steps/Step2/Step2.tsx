@@ -1,22 +1,22 @@
 import React, { useCallback, useEffect, useState } from "react";
 
-import { useWizardContext } from "../context/WizardContext";
-import PasswordInput from "./inputs/PasswordInput";
-import TextareaInput from "./inputs/TextareaInput";
-import TextInput from "./inputs/TextInput";
+import { useWizardContext } from "../../context/WizardContext";
+import PasswordInput from "./PasswordInput";
+import TextareaInput from "./TextareaInput";
+import TextInput from "./TextInput";
 
 import {
   initialErrorMessages,
   validators,
   errorMessages,
-} from "../utils/constants";
+} from "../../utils/constants";
 import {
   IErrorMessages,
   IStep2,
   IValidators,
   TInputsEvent,
   TStep2Fields,
-} from "../utils/interfaces";
+} from "../../utils/interfaces";
 
 const Step2 = () => {
   const { setStep2Done, setWizardData, wizardData } = useWizardContext();

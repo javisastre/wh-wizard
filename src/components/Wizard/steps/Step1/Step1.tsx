@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 
-import { useWizardContext } from "../context/WizardContext";
-import { IStep1 } from "../utils/interfaces";
+import { useWizardContext } from "../../context/WizardContext";
+import { IStep1 } from "../../utils/interfaces";
 
 import logoWheelHub from "./../../../assets/img/Logotipo-Vertical-Verde-Alta.png";
 
