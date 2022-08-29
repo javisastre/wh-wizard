@@ -3,7 +3,7 @@ import React from "react";
 import useStepSelector from "./hooks/useStepSelector";
 import Footer from "./navigation/Footer/Footer";
 import Header from "./navigation/Header/Header";
-import MainTitle from "./navigation/MainTitle";
+import MainTitle from "./navigation/MainTitle/MainTitle";
 
 import "./Wizard.scss";
 

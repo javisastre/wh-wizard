@@ -6,6 +6,7 @@ import HeaderBars from "./HeaderBars";
 import HeaderTriangle from "./HeaderTriangle";
 
 import { STEP1, STEP2, STEP3 } from "../../utils/constants";
+import LangSelector from "./LangSelector";
 
 const Header = () => {
   const { currentStep, step1Done, step2Done, finished } = useWizardContext();
@@ -14,6 +15,7 @@ const Header = () => {
 
   return (
     <header className='header-container'>
+      <LangSelector />
       <div className='steps-container'>
         <HeaderStep label='1' isThisStep={isThis(STEP1)} stepDone={step1Done} />
         <HeaderStep label='2' isThisStep={isThis(STEP2)} stepDone={step2Done} />

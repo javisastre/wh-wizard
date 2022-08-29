@@ -47,6 +47,10 @@ export interface IHeaderTriangle {
   isStep1: boolean;
   isStep2: boolean;
 }
+export type ILanguages = {
+  es: string;
+  ca: string;
+};
 
 // STEP2
 export interface IValidators {
