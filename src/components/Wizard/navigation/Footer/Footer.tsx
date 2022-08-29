@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import { useWizardContext } from "../../context/WizardContext";
 import { STEP1, STEP2, STEP3 } from "../../utils/constants";
@@ -6,6 +7,7 @@ import { STEP1, STEP2, STEP3 } from "../../utils/constants";
 import { initialWizardData } from "../../utils/constants";
 
 const Footer = () => {
+  const { t } = useTranslation();
   const {
     currentStep,
     setCurrentStep,
@@ -41,21 +43,21 @@ const Footer = () => {
           className={`btn back ${isThis(STEP1) ? "hidden" : ""}`}
           onClick={stepBack}
         >
-          Atrás
+          {t("BACK_BUTTON")}
         </button>
         <button
           className={`btn next ${isThis(STEP3) ? "none" : ""}`}
           disabled={isDisabled}
           onClick={stepForward}
         >
-          Siguiente <i className='fa-solid fa-angle-right'></i>{" "}
+          {t("NEXT_BUTTON")} <i className='fa-solid fa-angle-right'></i>{" "}
           <i className='fa-solid fa-spinner'></i>
         </button>
         <button
           className={`btn start ${isThis(STEP3) ? "" : "none"}`}
           onClick={startOver}
         >
-          Volver al inicio
+          {t("START_OVER_BUTTON")}
         </button>
       </nav>
     </footer>
