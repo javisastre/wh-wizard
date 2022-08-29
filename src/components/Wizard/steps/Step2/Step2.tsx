@@ -26,7 +26,9 @@ const Step2 = () => {
   const [error, setError] = useState<IErrorMessages>(initialErrorMessages);
 
   const validInput = (e: TInputsEvent) =>
-    validators[e.target.name as keyof IValidators].test(e.target.value);
+    e.target.name === "repeatPassword"
+      ? data.password === e.target.value
+      : validators[e.target.name as keyof IValidators].test(e.target.value);
 
   const handleError = (e: TInputsEvent) => {
     const inputName = e.target.name as keyof IErrorMessagesDB;
