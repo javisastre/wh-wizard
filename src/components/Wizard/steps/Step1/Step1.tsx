@@ -1,4 +1,5 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import { useWizardContext } from "../../context/WizardContext";
 import { IStep1 } from "../../utils/interfaces";
@@ -6,6 +7,8 @@ import { IStep1 } from "../../utils/interfaces";
 import logoWheelHub from "./../../../../assets/img/Logotipo-Vertical-Verde-Alta.png";
 
 const Step1 = () => {
+  const { t } = useTranslation();
+
   const { setStep1Done, wizardData, setWizardData } = useWizardContext();
 
   const [data, setData] = useState<IStep1>(wizardData.step1);
@@ -26,18 +29,10 @@ const Step1 = () => {
         <img src={logoWheelHub} alt='logo WheelHub' />
       </div>
       <div>
-        <h2>¿Qué deberá realizar?</h2>
-        <p>
-          En la primera prestaña, deberá confirmar que es mayor de edad y acepta
-          el tratamiento de sus datos según la política de datos vigentes.
-        </p>
-        <p>
-          En la segunda pestaña, deberá crear un usuario, una contraseña y una
-          pista para recordar la contraseña (como dato opcional).
-        </p>
-        <p>
-          En tercer lugar, deberá visualizarse el mensaje de éxito de creación.
-        </p>
+        <h2>{t("STEP1_TITLE")}</h2>
+        <p>{t("STEP1_EXPLANATION1")}</p>
+        <p>{t("STEP1_EXPLANATION2")}</p>
+        <p>{t("STEP1_EXPLANATION3")} </p>
       </div>
       <div className='input-container'>
         <label htmlFor='confirmPrivacy'>
@@ -51,10 +46,7 @@ const Step1 = () => {
           <div className='checkmark'>
             <div className='inner'></div>
           </div>
-          <p>
-            Confirma que es mayor de edad, y acepta el tratamiento de sus datos
-            según la política de protección de datos vigente.
-          </p>
+          <p>{t("STEP1_CONSENT")}</p>
         </label>
       </div>
     </article>
