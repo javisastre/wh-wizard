@@ -18,6 +18,7 @@ const TextInput = ({
       id={name}
       name={name}
       type='text'
+      className={error ? "input-error" : "input-normal"}
       placeholder={placeholder}
       required={required}
       minLength={min}

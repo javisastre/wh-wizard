@@ -23,6 +23,7 @@ const PasswordInput = ({
           id={name}
           name={name}
           type={show ? "text" : "password"}
+          className={error ? "input-error" : "input-normal"}
           placeholder={placeholder}
           required={required}
           minLength={min}
@@ -38,6 +39,7 @@ const PasswordInput = ({
             <i className='fa-solid fa-eye'></i>
           )}
         </div>
+        <div className='password-strength'></div>
       </div>
       <div className='error-message-container'>
         {error && <p className='error-message'>{error}</p>}

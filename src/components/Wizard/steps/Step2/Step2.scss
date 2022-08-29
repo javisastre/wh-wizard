@@ -23,7 +23,7 @@
     font-weight: 600;
   }
   input {
-    border: 1px solid $text-color;
+    outline: none;
     padding: 10px;
     border-radius: 0.2rem;
   }
@@ -46,4 +46,10 @@
     font-size: 0.8rem;
     padding-top: 5px;
   }
+}
+.input-error {
+  border: 2px solid $red;
+}
+.input-normal {
+  border: 2px solid $text-color;
 }
