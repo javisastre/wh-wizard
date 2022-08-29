@@ -79,3 +79,10 @@ export interface IHeaderTriangle {
   isStep1: boolean;
   isStep2: boolean;
 }
+
+export interface IMessage {
+  content: {
+    title: string;
+    body: string;
+  };
+}

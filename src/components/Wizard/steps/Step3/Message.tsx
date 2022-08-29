@@ -1,16 +1,11 @@
 import React from "react";
+import { IMessage } from "../../utils/interfaces";
 
-const Message = () => {
+const Message = ({ content }: IMessage) => {
   return (
-    <div>
-      <h2>¡La cuenta se creó correctamente!</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. At in tellus integer
-        feugiat scelerisque varius. Dignissim cras tincidunt lobortis feugiat
-        vivamus at. Id neque aliquam vestibulum morbi blandit cursus. Nulla
-        pharetra diam sit amet nisl suscipit adipiscing.
-      </p>
+    <div className='message'>
+      <h2>{content.title}</h2>
+      <p>{content.body}</p>
     </div>
   );
 };

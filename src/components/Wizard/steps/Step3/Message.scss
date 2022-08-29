@@ -1,0 +1,14 @@
+.message {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  color: $text-color;
+  h2 {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  p {
+    text-align: justify;
+    line-height: 1.4rem;
+  }
+}
