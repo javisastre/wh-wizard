@@ -25,7 +25,9 @@ const TextInput = ({
       onChange={handleInput}
       onBlur={handleError}
     />
-    {error && <p className='error-message'>{error}</p>}
+    <div className='error-message-container'>
+      {error && <p className='error-message'>{error}</p>}
+    </div>
   </div>
 );
 

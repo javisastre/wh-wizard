@@ -39,7 +39,9 @@ const PasswordInput = ({
           )}
         </div>
       </div>
-      {error && <p className='error-message'>{error}</p>}
+      <div className='error-message-container'>
+        {error && <p className='error-message'>{error}</p>}
+      </div>
     </div>
   );
 };
