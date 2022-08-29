@@ -47,6 +47,21 @@ export interface IErrorMessages {
   repeatPassword: string;
 }
 
+export interface IErrorMessagesDB {
+  username: {
+    empty: string;
+    invalid: string;
+  };
+  password: {
+    empty: string;
+    invalid: string;
+  };
+  repeatPassword: {
+    empty: string;
+    invalid: string;
+  };
+}
+
 export type TInputsEvent = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
 
 export interface IInput {

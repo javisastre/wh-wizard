@@ -8,10 +8,11 @@ import TextInput from "./TextInput";
 import {
   initialErrorMessages,
   validators,
-  errorMessages,
+  errorMessagesDB,
 } from "../../utils/constants";
 import {
   IErrorMessages,
+  IErrorMessagesDB,
   IStep2,
   IValidators,
   TInputsEvent,
@@ -27,13 +28,21 @@ const Step2 = () => {
   const validInput = (e: TInputsEvent) =>
     validators[e.target.name as keyof IValidators].test(e.target.value);
 
-  const handleError = (e: TInputsEvent) =>
+  const handleError = (e: TInputsEvent) => {
+    const inputName = e.target.name as keyof IErrorMessagesDB;
+
+    const errorMessage =
+      e.target.value === ""
+        ? errorMessagesDB[inputName].empty
+        : !validInput(e)
+        ? errorMessagesDB[inputName].invalid
+        : "";
+
     setError({
       ...error,
-      [e.target.name]: validInput(e)
-        ? ""
-        : errorMessages[e.target.name as keyof IErrorMessages],
+      [e.target.name]: errorMessage,
     });
+  };
 
   const handleInput = (e: TInputsEvent) => {
     setData({ ...data, [e.target.name]: e.target.value });

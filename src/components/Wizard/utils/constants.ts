@@ -1,5 +1,6 @@
 import {
   IErrorMessages,
+  IErrorMessagesDB,
   IFinished,
   IStep1,
   IStep2,
@@ -27,12 +28,6 @@ export const initialFinished: IFinished = {
   error: false,
 };
 
-export const initialErrorMessages: IErrorMessages = {
-  username: "",
-  password: "",
-  repeatPassword: "",
-};
-
 export const initialWizardData: IWizardData = {
   step1: initialStep1,
   step2: initialStep2,
@@ -45,8 +40,23 @@ export const validators: IValidators = {
   repeatPassword: /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,24}$/,
 };
 
-export const errorMessages: IErrorMessages = {
-  username: "Debes introducir un usuario válido",
-  password: "Tu password no es suficientemente compleja",
-  repeatPassword: "Debe ser igual que la anterior",
+export const initialErrorMessages: IErrorMessages = {
+  username: "",
+  password: "",
+  repeatPassword: "",
+};
+
+export const errorMessagesDB: IErrorMessagesDB = {
+  username: {
+    empty: "El campo es obligatori",
+    invalid: "Debes introducir un usuario válido",
+  },
+  password: {
+    empty: "El campo es obligatorio",
+    invalid: "Tu password debe ser más robusta",
+  },
+  repeatPassword: {
+    empty: "El campo es obligatorio",
+    invalid: "Debe ser igual que la anterior",
+  },
 };
