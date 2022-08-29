@@ -11,7 +11,7 @@ const Wizard = () => {
   const StepComponent = useStepSelector();
 
   return (
-    <div>
+    <div className='app-content'>
       <Header />
       <main>
         <MainTitle />
