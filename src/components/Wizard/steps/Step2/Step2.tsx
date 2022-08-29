@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import { useWizardContext } from "../../context/WizardContext";
 import PasswordInput from "./PasswordInput";
@@ -20,6 +21,7 @@ import {
 } from "../../utils/interfaces";
 
 const Step2 = () => {
+  const { t } = useTranslation();
   const { setStep2Done, setWizardData, wizardData } = useWizardContext();
 
   const [data, setData] = useState<IStep2>(wizardData.step2);
@@ -76,8 +78,8 @@ const Step2 = () => {
     <article className='step2'>
       <TextInput
         name='username'
-        label='Crea tu usuario'
-        placeholder='Introduce tu usuario'
+        label={t("STEP2_USER_LABEL")}
+        placeholder={t("STEP2_USER_PLACEHOLDER")}
         required={true}
         min={3}
         value={data.username}
@@ -88,8 +90,8 @@ const Step2 = () => {
       <div className='two-passwords'>
         <PasswordInput
           name='password'
-          label='Crea tu contraseña'
-          placeholder='Crea tu contraseña'
+          label={t("STEP2_PASS_LABEL")}
+          placeholder={t("STEP2_PASS_PLACEHOLDER")}
           required={true}
           min={8}
           max={24}
@@ -100,8 +102,8 @@ const Step2 = () => {
         />
         <PasswordInput
           name='repeatPassword'
-          label='Repite tu contraseña'
-          placeholder='Repite tu contraseña'
+          label={t("STEP2_REPASS_LABEL")}
+          placeholder={t("STEP2_REPASS_PLACEHOLDER")}
           required={true}
           min={8}
           max={24}
@@ -112,14 +114,12 @@ const Step2 = () => {
         />
       </div>
       <div className='hint-label'>
-        <p>
-          También puedes crear una pista que te ayude a recordar tu contraseña
-        </p>
+        <p>{t("STEP2_EXPLANATION")}</p>
       </div>
       <TextareaInput
         name='hint'
-        label='Crea tu pista para recordar tu contraseña (opcional)'
-        placeholder='Introduce tu pista'
+        label={t("STEP2_HINT_LABEL")}
+        placeholder={t("STEP2_HINT_PLACEHOLDER")}
         min={0}
         max={60}
         required={false}
