@@ -20,20 +20,25 @@ const TextareaInput = ({
   };
 
   return (
-    <div>
-      <label htmlFor={name}>{label}</label>
-      <textarea
-        id={name}
-        name={name}
-        placeholder={placeholder}
-        minLength={min}
-        maxLength={max}
-        required={required}
-        value={value}
-        onChange={handleChanges}
-      ></textarea>
+    <div className='textarea-input'>
       <div>
-        {count}/{max}
+        <label htmlFor={name}>{label}</label>{" "}
+        <i className='fa-solid fa-circle-info info'></i>
+      </div>
+      <div className='textarea-counter'>
+        <textarea
+          id={name}
+          name={name}
+          placeholder={placeholder}
+          minLength={min}
+          maxLength={max}
+          required={required}
+          value={value}
+          onChange={handleChanges}
+        ></textarea>
+        <div>
+          {count}/{max}
+        </div>
       </div>
     </div>
   );
