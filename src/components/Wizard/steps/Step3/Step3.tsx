@@ -5,7 +5,7 @@ import { useWizardContext } from "../../context/WizardContext";
 import Message from "./Message";
 import Step404 from "../Step404";
 
-import successImg from "./../../../../assets/img/success.png";
+import successImg from "./../../../../assets/img/success.png"; // "./../../../../assets/img/success.png";
 import errorImg from "./../../../../assets/img/error.png";
 
 const Step3 = () => {
