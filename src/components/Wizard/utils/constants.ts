@@ -61,3 +61,15 @@ export const errorMessagesDB: IErrorMessagesDB = {
     invalid: t("STEP2_ERR_INVALID_REPASS"),
   },
 };
+
+// STEP3
+
+export const successObj: IStep3 = {
+  success: true,
+  error: false,
+};
+
+export const errorObj: IStep3 = {
+  success: false,
+  error: true,
+};
