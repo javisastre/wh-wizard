@@ -26,26 +26,26 @@ const Footer = () => {
       : true;
 
   const createAccount = async () => {
-    const { username, password, hint } = wizardData;
+    const { username, password, hint } = wizardData.step2;
     const userInfo = { username, password, hint };
     try {
       const { data } = await axios.post("/url", userInfo);
       if (data.status === 200) {
         setWizardData((prev) => ({
           ...prev,
-          finish: { ...prev.finish, success: true },
+          step3: { ...prev.step3, success: true },
         }));
       } else {
         setWizardData((prev) => ({
           ...prev,
-          finish: { ...prev.finish, error: true },
+          step3: { ...prev.step3, error: true },
         }));
       }
     } catch (error) {
       console.error(error);
       setWizardData((prev) => ({
         ...prev,
-        finish: { ...prev.finish, error: true },
+        step3: { ...prev.step3, error: true },
       }));
     } finally {
       setCurrentStep(STEP3);

@@ -1,7 +1,7 @@
 import {
   IErrorMessages,
   IErrorMessagesDB,
-  IFinished,
+  IStep3,
   IStep1,
   IStep2,
   IValidators,
@@ -26,14 +26,14 @@ export const initialStep2: IStep2 = {
   repeatPassword: "",
   hint: "",
 };
-export const initialFinished: IFinished = {
+export const initialStep3: IStep3 = {
   success: false,
   error: false,
 };
 export const initialWizardData: IWizardData = {
   step1: initialStep1,
   step2: initialStep2,
-  step3: initialFinished,
+  step3: initialStep3,
 };
 
 // STEP2

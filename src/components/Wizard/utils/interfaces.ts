@@ -4,7 +4,7 @@ import { ChangeEvent } from "react";
 export interface IWizardData {
   step1: IStep1;
   step2: IStep2;
-  step3: IFinished;
+  step3: IStep3;
 }
 export interface IStep1 {
   confirmPrivacy: boolean;
@@ -15,7 +15,7 @@ export interface IStep2 {
   repeatPassword: string;
   hint: string;
 }
-export interface IFinished {
+export interface IStep3 {
   success: boolean;
   error: boolean;
 }
@@ -28,8 +28,8 @@ export interface IWizardContextValues {
   setStep1Done: React.Dispatch<React.SetStateAction<boolean>>;
   step2Done: boolean;
   setStep2Done: React.Dispatch<React.SetStateAction<boolean>>;
-  finished: IFinished;
-  setFinished: React.Dispatch<React.SetStateAction<IFinished>>;
+  finished: IStep3;
+  setFinished: React.Dispatch<React.SetStateAction<IStep3>>;
 }
 
 // NAVIGATION
