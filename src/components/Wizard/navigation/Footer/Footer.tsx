@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import { useTranslation } from "react-i18next";
 
 import { useWizardContext } from "../../context/WizardContext";
@@ -15,6 +16,7 @@ const Footer = () => {
     setStep1Done,
     step2Done,
     setStep2Done,
+    wizardData,
     setWizardData,
   } = useWizardContext();
 
@@ -23,9 +25,35 @@ const Footer = () => {
       ? false
       : true;
 
+  const createAccount = async () => {
+    const { username, password, hint } = wizardData;
+    const userInfo = { username, password, hint };
+    try {
+      const { data } = await axios.post("/url", userInfo);
+      if (data.status === 200) {
+        setWizardData((prev) => ({
+          ...prev,
+          finish: { ...prev.finish, success: true },
+        }));
+      } else {
+        setWizardData((prev) => ({
+          ...prev,
+          finish: { ...prev.finish, error: true },
+        }));
+      }
+    } catch (error) {
+      console.error(error);
+      setWizardData((prev) => ({
+        ...prev,
+        finish: { ...prev.finish, error: true },
+      }));
+    } finally {
+      setCurrentStep(STEP3);
+    }
+  };
   const isThis = (step: string) => currentStep === step;
   const stepForward = () =>
-    currentStep === STEP1 ? setCurrentStep(STEP2) : setCurrentStep(STEP3);
+    currentStep === STEP1 ? setCurrentStep(STEP2) : createAccount();
   const stepBack = () =>
     currentStep === STEP2 ? setCurrentStep(STEP1) : setCurrentStep(STEP2);
   const startOver = () => {

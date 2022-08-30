@@ -12,6 +12,6 @@ npm run start
 - React
 - Typescript
 - Context
-- Jest unit testing
+- Jest & React Testing Library unit testing
 - sass
 - i18n
