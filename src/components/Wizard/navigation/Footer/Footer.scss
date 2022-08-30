@@ -10,6 +10,7 @@ footer {
   .btn {
     padding: 4px 6px;
     border: none;
+    width: 130px;
   }
   .back {
     background: $white;
@@ -37,5 +38,17 @@ footer {
     &:hover {
       color: $green-color;
     }
+  }
+}
+
+.spinning {
+  animation: spin 1s infinite linear normal;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
