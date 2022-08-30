@@ -10,10 +10,12 @@ import errorImg from "./../../../../assets/img/error.png";
 
 const Step3 = () => {
   const { t } = useTranslation();
-
   const {
     finished: { success, error },
+    currentStep,
   } = useWizardContext();
+
+  console.log("success", success, "error", error, "currentStep", currentStep);
 
   const successMessage = {
     title: t("STEP3_SUCCESS_TITLE"),
