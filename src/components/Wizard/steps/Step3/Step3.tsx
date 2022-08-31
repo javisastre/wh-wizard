@@ -2,7 +2,7 @@ import React from "react";
 import { useWizardContext } from "../../context/WizardContext";
 
 import Message from "./Message";
-import Step404 from "../Step404";
+import Step404 from "./../Step404/Step404";
 
 import {
   successMessage,
