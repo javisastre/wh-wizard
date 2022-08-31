@@ -68,7 +68,7 @@ const Step2 = () => {
   useEffect(() => {
     setWizardData((prev) => ({ ...prev, step2: data }));
 
-    setStep2Done(isAllDataCorrect() ? true : false);
+    setStep2Done(isAllDataCorrect());
   }, [data, setStep2Done, setWizardData, isAllDataCorrect]);
 
   return (
