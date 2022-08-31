@@ -8,9 +8,7 @@ import PrivacyCheckbox from "./PrivacyCheckbox";
 
 const Step1 = () => {
   const { t } = useTranslation();
-
   const { setStep1Done, wizardData, setWizardData } = useWizardContext();
-
   const [data, setData] = useState<IStep1>(wizardData.step1);
 
   const handleData = (e: ChangeEvent<HTMLInputElement>) =>
