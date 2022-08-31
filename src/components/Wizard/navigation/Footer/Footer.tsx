@@ -1,71 +1,57 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
-
 import { useWizardContext } from "../../context/WizardContext";
+
 import {
-  errorObj,
   STEP1,
   STEP2,
   STEP3,
   successObj,
+  errorObj,
+  initialWizardData,
 } from "../../utils/constants";
+import { IFooter } from "../../utils/interfaces";
 
-import { initialWizardData } from "../../utils/constants";
-
-const Footer = () => {
+const Footer = ({ currentStep, setCurrentStep }: IFooter) => {
   const { t } = useTranslation();
-  const {
-    currentStep,
-    setCurrentStep,
-    step1Done,
-    setStep1Done,
-    step2Done,
-    setStep2Done,
-    wizardData,
-    setWizardData,
-  } = useWizardContext();
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const { step1Done, setStep1Done, step2Done, setStep2Done, setWizardData } =
+    useWizardContext();
 
   const createAccount = async () => {
-    // WITH REAL BACKEND
+    // REAL BACKEND
     // const { username, password, hint } = wizardData.step2;
     // const userInfo = { username, password, hint };
     try {
       // const { data } = await axios.post("/backend-url", userInfo);
-      // if (data.status === 200) setStep3(successObj);
-      // else setStep3(errorObj);
+      // if (data.status === 200) ((prev) => ({ ...prev, step3: successObj }));
+      // else ((prev) => ({ ...prev, step3: errorObj }));
 
       // FAKE BACKEND
       const { data } = await axios.get(
         "http://www.randomnumberapi.com/api/v1.0/random"
       );
-      if (Number(data[0]) > 20)
+      if (Number(data[0]) > 10)
         setWizardData((prev) => ({ ...prev, step3: successObj }));
       else setWizardData((prev) => ({ ...prev, step3: errorObj }));
     } catch (error) {
       setWizardData((prev) => ({ ...prev, step3: errorObj }));
     } finally {
-      setIsLoading(false);
     }
   };
-
-  const handleStep3 = () => {
+  const handleStep3 = async () => {
     setIsLoading(true);
-    createAccount();
+    await createAccount();
+    setIsLoading(false);
+    setCurrentStep(STEP3);
   };
-
-  useEffect(() => {
-    if (wizardData.step3.success || wizardData.step3.error) {
-      setCurrentStep(STEP3);
-    }
-  }, [wizardData.step3, setCurrentStep]);
 
   const isThis = (step: string) => currentStep === step;
   const stepForward = () =>
-    currentStep === STEP1 ? setCurrentStep(STEP2) : handleStep3();
+    isThis(STEP1) ? setCurrentStep(STEP2) : handleStep3();
   const stepBack = () =>
-    currentStep === STEP2 ? setCurrentStep(STEP1) : setCurrentStep(STEP2);
+    isThis(STEP2) ? setCurrentStep(STEP1) : setCurrentStep(STEP2);
   const startOver = () => {
     setCurrentStep(STEP1);
     setStep1Done(false);
@@ -74,9 +60,9 @@ const Footer = () => {
   };
 
   const isDisabled =
-    (currentStep === STEP1 && !step1Done) ||
-    (currentStep === STEP2 && !step2Done) ||
-    (currentStep === STEP2 && isLoading)
+    (isThis(STEP1) && !step1Done) ||
+    (isThis(STEP2) && !step2Done) ||
+    (isThis(STEP2) && isLoading)
       ? true
       : false;
 

@@ -1,30 +1,17 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
-
 import { useWizardContext } from "../../context/WizardContext";
+
 import Message from "./Message";
 import Step404 from "../Step404";
+
+import { successMessage, errorMessage } from "../../utils/constants";
 
 import successImg from "./../../../../assets/img/success.png"; // "./../../../../assets/img/success.png";
 import errorImg from "./../../../../assets/img/error.png";
 
 const Step3 = () => {
-  const { t } = useTranslation();
-  const {
-    finished: { success, error },
-    currentStep,
-  } = useWizardContext();
-
-  console.log("success", success, "error", error, "currentStep", currentStep);
-
-  const successMessage = {
-    title: t("STEP3_SUCCESS_TITLE"),
-    body: t("STEP3_SUCCESS_BODY"),
-  };
-  const errorMessage = {
-    title: t("STEP3_ERROR_TITLE"),
-    body: t("STEP3_ERROR_BODY"),
-  };
+  const { wizardData } = useWizardContext();
+  const { success, error } = wizardData.step3;
 
   return (
     <article className='step3'>

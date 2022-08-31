@@ -1,15 +1,16 @@
 import React from "react";
-
 import { useWizardContext } from "../../context/WizardContext";
+
 import HeaderStep from "./HeaderStep";
 import HeaderBars from "./HeaderBars";
 import HeaderTriangle from "./HeaderTriangle";
-
-import { STEP1, STEP2, STEP3 } from "../../utils/constants";
 import LangSelector from "./LangSelector";
 
-const Header = () => {
-  const { currentStep, step1Done, step2Done, finished } = useWizardContext();
+import { STEP1, STEP2, STEP3 } from "../../utils/constants";
+import { IHeader } from "../../utils/interfaces";
+
+const Header = ({ currentStep }: IHeader) => {
+  const { step1Done, step2Done, wizardData } = useWizardContext();
 
   const isThis = (step: string) => currentStep === step;
 
@@ -22,7 +23,7 @@ const Header = () => {
         <HeaderStep
           label='3'
           isThisStep={isThis(STEP3)}
-          stepDone={finished.success}
+          stepDone={wizardData.step3.success}
         />
       </div>
       <div className='hr-bars-container'>

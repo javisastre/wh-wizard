@@ -20,19 +20,18 @@ export interface IStep3 {
   error: boolean;
 }
 export interface IWizardContextValues {
-  currentStep: string;
-  setCurrentStep: React.Dispatch<React.SetStateAction<string>>;
   wizardData: IWizardData;
   setWizardData: React.Dispatch<React.SetStateAction<IWizardData>>;
   step1Done: boolean;
   setStep1Done: React.Dispatch<React.SetStateAction<boolean>>;
   step2Done: boolean;
   setStep2Done: React.Dispatch<React.SetStateAction<boolean>>;
-  finished: IStep3;
-  setFinished: React.Dispatch<React.SetStateAction<IStep3>>;
 }
 
 // NAVIGATION
+export interface IHeader {
+  currentStep: string;
+}
 export interface IHeaderStep {
   isThisStep: boolean;
   stepDone: boolean;
@@ -51,12 +50,21 @@ export type ILanguages = {
   es: string;
   ca: string;
 };
+export interface IFooter {
+  currentStep: string;
+  setCurrentStep: React.Dispatch<React.SetStateAction<string>>;
+}
 
 // STEP2
 export interface IValidators {
   username: RegExp;
   password: RegExp;
-  repeatPassword: RegExp;
+}
+export interface IPassMatchers {
+  weak: RegExp;
+  fair: RegExp;
+  good: RegExp;
+  strong: RegExp;
 }
 export interface IErrorMessages {
   username: string;
@@ -101,8 +109,14 @@ export interface IPasswordStrength {
 
 // STEP3
 export interface IMessage {
-  content: {
-    title: string;
-    body: string;
-  };
+  content: IMessageContent;
+}
+export interface IMessageContent {
+  title: string;
+  body: string;
+}
+
+// HELPERS
+export interface ICreateAccount {
+  setWizard: React.Dispatch<React.SetStateAction<IWizardData>>;
 }

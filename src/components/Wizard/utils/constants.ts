@@ -6,6 +6,8 @@ import {
   IStep2,
   IValidators,
   IWizardData,
+  IPassMatchers,
+  IMessageContent,
 } from "./interfaces";
 
 import i18n from "../../../i18n/i18n";
@@ -40,7 +42,12 @@ export const initialWizardData: IWizardData = {
 export const validators: IValidators = {
   username: /[0-9a-zA-Z]{3,}/,
   password: /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,24}$/,
-  repeatPassword: /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,24}$/,
+};
+export const passMatchers: IPassMatchers = {
+  weak: /^(?=.*[a-zA-Z]).{1,24}$/,
+  fair: /^(?=.*[a-z])(?=.*[A-Z]).{4,24}$/,
+  good: /(?=.*[0-9])(?=.*[a-zA-Z]).{8,24}$/,
+  strong: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,24}$/,
 };
 export const initialErrorMessages: IErrorMessages = {
   username: "",
@@ -68,8 +75,15 @@ export const successObj: IStep3 = {
   success: true,
   error: false,
 };
-
 export const errorObj: IStep3 = {
   success: false,
   error: true,
+};
+export const successMessage: IMessageContent = {
+  title: t("STEP3_SUCCESS_TITLE"),
+  body: t("STEP3_SUCCESS_BODY"),
+};
+export const errorMessage: IMessageContent = {
+  title: t("STEP3_ERROR_TITLE"),
+  body: t("STEP3_ERROR_BODY"),
 };

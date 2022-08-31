@@ -1,9 +1,8 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-
 import { useWizardContext } from "../../context/WizardContext";
-import { IStep1 } from "../../utils/interfaces";
 
+import { IStep1 } from "../../utils/interfaces";
 import logoWheelHub from "./../../../../assets/img/Logotipo-Vertical-Verde-Alta.png";
 
 const Step1 = () => {

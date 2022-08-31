@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-
 import { useWizardContext } from "../../context/WizardContext";
+
+import TextInput from "./TextInput";
 import PasswordInput from "./PasswordInput";
 import TextareaInput from "./TextareaInput";
-import TextInput from "./TextInput";
 
 import {
   initialErrorMessages,

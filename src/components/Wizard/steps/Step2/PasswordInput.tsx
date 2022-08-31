@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { IInput } from "../../utils/interfaces";
+
 import PasswordEye from "./PasswordEye";
 import PasswordStrength from "./PasswordStrength";
+
+import { IInput } from "../../utils/interfaces";
 
 const PasswordInput = ({
   name,
