@@ -4,6 +4,7 @@ import { useWizardContext } from "../../context/WizardContext";
 
 import { IStep1 } from "../../utils/interfaces";
 import logoWheelHub from "./../../../../assets/img/Logotipo-Vertical-Verde-Alta.png";
+import PrivacyCheckbox from "./PrivacyCheckbox";
 
 const Step1 = () => {
   const { t } = useTranslation();
@@ -33,21 +34,12 @@ const Step1 = () => {
         <p>{t("STEP1_EXPLANATION2")}</p>
         <p>{t("STEP1_EXPLANATION3")} </p>
       </div>
-      <div className='input-container'>
-        <label htmlFor='confirmPrivacy'>
-          <input
-            id='confirmPrivacy'
-            name='confirmPrivacy'
-            type='checkbox'
-            checked={data.confirmPrivacy}
-            onChange={handleData}
-          />
-          <div className='checkmark'>
-            <div className='inner'></div>
-          </div>
-          <p>{t("STEP1_CONSENT")}</p>
-        </label>
-      </div>
+      <PrivacyCheckbox
+        name='confirmPrivacy'
+        label={t("STEP1_CONSENT")}
+        handleData={handleData}
+        confirmPrivacy={data.confirmPrivacy}
+      />
     </article>
   );
 };

@@ -6,11 +6,7 @@ import TextInput from "./TextInput";
 import PasswordInput from "./PasswordInput";
 import TextareaInput from "./TextareaInput";
 
-import {
-  initialErrorMessages,
-  validators,
-  errorMessagesDB,
-} from "../../utils/constants";
+import { initialErrorMessages, validators } from "../../utils/constants";
 import {
   IErrorMessages,
   IErrorMessagesDB,
@@ -19,6 +15,7 @@ import {
   TInputsEvent,
   TStep2Fields,
 } from "../../utils/interfaces";
+import { errorMessagesDB } from "../../utils/constantsWithTranslation";
 
 const Step2 = () => {
   const { t } = useTranslation();
