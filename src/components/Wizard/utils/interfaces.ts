@@ -54,6 +54,13 @@ export interface IFooter {
   currentStep: string;
   setCurrentStep: React.Dispatch<React.SetStateAction<string>>;
 }
+//STEP1
+export interface IPrivacyCheckbox {
+  name: string;
+  label: string;
+  handleData: (e: ChangeEvent<HTMLInputElement>) => void;
+  confirmPrivacy: boolean;
+}
 
 // STEP2
 export interface IValidators {
