@@ -1,13 +1,11 @@
 import {
   IErrorMessages,
-  IErrorMessagesDB,
   IStep3,
   IStep1,
   IStep2,
   IValidators,
   IWizardData,
   IPassMatchers,
-  IMessageContent,
 } from "./interfaces";
 
 // NAVIGATION

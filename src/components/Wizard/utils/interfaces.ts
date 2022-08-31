@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, Dispatch, SetStateAction } from "react";
 
 // CONTEXT
 export interface IWizardData {
@@ -21,11 +21,11 @@ export interface IStep3 {
 }
 export interface IWizardContextValues {
   wizardData: IWizardData;
-  setWizardData: React.Dispatch<React.SetStateAction<IWizardData>>;
+  setWizardData: Dispatch<SetStateAction<IWizardData>>;
   step1Done: boolean;
-  setStep1Done: React.Dispatch<React.SetStateAction<boolean>>;
+  setStep1Done: Dispatch<SetStateAction<boolean>>;
   step2Done: boolean;
-  setStep2Done: React.Dispatch<React.SetStateAction<boolean>>;
+  setStep2Done: Dispatch<SetStateAction<boolean>>;
 }
 
 // NAVIGATION
@@ -52,7 +52,13 @@ export type ILanguages = {
 };
 export interface IFooter {
   currentStep: string;
-  setCurrentStep: React.Dispatch<React.SetStateAction<string>>;
+  setCurrentStep: Dispatch<SetStateAction<string>>;
+}
+export interface IFooterButton {
+  addClass: string;
+  label: string | JSX.Element;
+  handleClick: () => void;
+  isDisabled?: boolean;
 }
 //STEP1
 export interface IPrivacyCheckbox {
@@ -108,7 +114,7 @@ export interface IInput {
 export type TStep2Fields = "username" | "password" | "repeatPassword";
 export interface IPasswordEye {
   show: boolean;
-  setShow: React.Dispatch<React.SetStateAction<boolean>>;
+  setShow: Dispatch<SetStateAction<boolean>>;
 }
 export interface IPasswordStrength {
   password: string;
@@ -125,5 +131,5 @@ export interface IMessageContent {
 
 // HELPERS
 export interface ICreateAccount {
-  setWizard: React.Dispatch<React.SetStateAction<IWizardData>>;
+  setWizard: Dispatch<SetStateAction<IWizardData>>;
 }
